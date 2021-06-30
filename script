@@ -35,7 +35,7 @@ def conversion():
 		Return : Written English
 		"""
 	
-		#obtain audio from the microphone
+		#obtain audio from th microphone
 		r = sr.Recognizer()
 		with sr.Microphone() as source:
 			print("Say something!")
@@ -43,14 +43,14 @@ def conversion():
 
 		try:
 			# for testing purposes, we're just using the default API key
-			# to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
+			# to use anothe API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
 			# instead of `r.recognize_google(audio)`
-			print("Input from user after transcript audio by Google Speech Recognition is :" ,r.recognize_google(audio))
+			print("Input frm user after transcript audio by Google Speech Recognition is :" ,r.recognize_google(audio))
 			print("Abbreviations spoken :",repeater(str(r.recognize_google(audio))))
 			abb = repeater(str(r.recognize_google(audio)))
 			return abb
 
 		except sr.UnknownValueError:
 			print("Google Speech Recognition could not understand audio")
-		except sr.RequestError as e:
+		except sr.RequestError :
 			print("Could not request results from Google Speech Recognition service; {0}".format(e))
